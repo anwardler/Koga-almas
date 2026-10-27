@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>داواکاری کۆگای ئەلماس</title>
+</head>
+<body style="font-family:Arial;text-align:center;padding:20px">
+<h1>کۆگای ئەلماس</h1>
+<h2>داواکاری کاڵا</h2>
+<p>بەخێربێن بۆ سیستەمی داواکاری کۆگای ئەلماس</p>
+<input id="shop" placeholder="ناوی دوکان"><br><br>
+<input id="phone" placeholder="ژمارەی مۆبایل"><br><br>
+<textarea id="items" placeholder="ناوی کاڵا و ژمارەی کارتۆن"></textarea><br><br>
+<button onclick="sendOrder()">ناردنی داواکاری</button>
+<script>
+function sendOrder(){
+let s=document.getElementById('shop').value;
+let p=document.getElementById('phone').value;
+let i=document.getElementById('items').value;
+if(!s||!p||!i){alert('تکایە هەموو خانەکان پڕ بکەرەوە');return;}
+let m='داواکاری کۆگای ئەلماس\nدوکان: '+s+'\nمۆبایل: '+p+'\nکاڵاکان: '+i;
+location.href='https://wa.me/9647512267252?text='+encodeURIComponent(m);
+}
+</script>
+</body>
+</html>
