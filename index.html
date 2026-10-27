@@ -1,53 +1,112 @@
 <!DOCTYPE html>
-
 <html lang="ckb" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>کۆگای ئەلماس</title>
-
+<title>کۆگای ئەلماس | Almas</title>
 <style>
-
-body{font-family:Arial,sans-serif;margin:0;background:#f3f5f7;color:#222}
-
-header{background:#123c2c;color:white;text-align:center;padding:25px 10px}
-
-header h1{margin:0;font-size:30px}
-
-header p{margin-bottom:0}
-
-nav{text-align:center;padding:15px;background:white}
-
-button{background:#176b48;color:white;border:0;padding:12px 18px;border-radius:8px;font-size:16px}
-
-main{padding:15px;max-width:800px;margin:auto}
-
-.welcome{background:white;padding:20px;border-radius:12px;text-align:center;margin-bottom:20px}
-
-h2{color:#176b48}
-
-.products{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-
-.card{background:white;padding:15px;border-radius:12px;text-align:center;box-shadow:0 2px 6px #ddd}
-
-.icon{font-size:45px}
-
-.card h3{margin:10px 0}
-
-footer{background:#123c2c;color:white;text-align:center;padding:20px;margin-top:25px}
-
-@media(min-width:600px){.products{grid-template-columns:repeat(3,1fr)}}
-
+*{box-sizing:border-box}
+body{margin:0;background:#f5f6f2;color:#202b25;font-family:Arial,Tahoma,sans-serif}
+header{background:#123b2b;color:white;padding:22px 16px;text-align:center;border-bottom:4px solid #c6a34a}
+.logo{font-size:34px;font-weight:bold;color:#e6c56d;letter-spacing:2px}
+.subtitle{font-size:16px;margin-top:8px}
+.phone{font-size:19px;font-weight:bold;margin-top:14px}
+.contact{font-size:13px;color:#e6c56d;margin-top:4px}
+.location{font-size:13px;margin-top:10px;color:#eee}
+.hero{margin:16px;padding:26px 16px;text-align:center;background:linear-gradient(135deg,#174b36,#0c2e22);border-radius:16px;color:white}
+.hero h1{font-size:25px;color:#f0d17b;margin:0 0 10px}
+.hero p{margin:0;font-size:15px}
+main{padding:0 14px 30px}
+h2{font-size:20px;margin:22px 0 13px;color:#17412e}
+.categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.category{background:white;border:1px solid #e2e6df;border-radius:12px;padding:15px 8px;text-align:center;font-weight:bold;box-shadow:0 2px 7px #00000008}
+.category span{display:block;font-size:25px;margin-bottom:7px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.product{background:white;border:1px solid #e3e7df;border-radius:12px;padding:12px;text-align:center}
+.product .pic{height:82px;display:flex;align-items:center;justify-content:center;font-size:45px;background:#f5f7f1;border-radius:9px;margin-bottom:10px}
+.product h3{font-size:15px;margin:5px 0 12px}
+.product button,.orderbtn{border:0;background:#174b36;color:white;border-radius:8px;padding:10px 12px;font-size:14px;font-weight:bold;width:100%;cursor:pointer}
+.orderbox{background:white;border-radius:14px;padding:16px;margin-top:24px;border:1px solid #e1e5dc}
+label{display:block;font-size:14px;margin:12px 0 6px}
+input,textarea{width:100%;padding:12px;border:1px solid #ccd4ca;border-radius:8px;font-size:16px}
+textarea{min-height:80px}
+.orderbtn{margin-top:15px;background:#16834c}
+footer{text-align:center;padding:20px;background:#123b2b;color:white;font-size:13px}
 </style>
-
 </head>
-
 <body>
 
 <header>
+  <div class="logo">◆ ALMAS ◆</div>
+  <div class="subtitle">کۆگای ئەلماس — کۆگای جوملەی مارکێت</div>
+  <div class="phone">0751 226 7252</div>
+  <div class="contact">بۆ پەیوەندیکردن</div>
+  <div class="location">ناو هەولێر و دەورووبەری</div>
+</header>
 
-<h1>کۆگای ئەلماس
+<section class="hero">
+  <h1>پێداویستی مارکێت لێرەیە</h1>
+  <p>کۆگای ئەلماس — پێداویستی مارکێتەکانت لە یەک شوێن</p>
+</section>
+
+<main>
+  <h2>بەشەکان</h2>
+  <div class="categories">
+    <div class="category"><span>🧹</span>پاکەرەوەکان</div>
+    <div class="category"><span>🍟</span>چیپس</div>
+    <div class="category"><span>🥤</span>ساردەمەنی و شەربەت</div>
+    <div class="category"><span>🍰</span>کێک</div>
+    <div class="category"><span>🛒</span>ئەرزاق</div>
+    <div class="category"><span>🍼</span>عەفازە</div>
+    <div class="category"><span>🚬</span>جگارە</div>
+  </div>
+
+  <h2>هەموو بەرهەمەکان</h2>
+  <div class="products">
+    <div class="product"><div class="pic">🧴</div><h3>پاکەرەوەکان</h3><button onclick="choose('پاکەرەوەکان')">داواکردن</button></div>
+    <div class="product"><div class="pic">🍟</div><h3>چیپس</h3><button onclick="choose('چیپس')">داواکردن</button></div>
+    <div class="product"><div class="pic">🥤</div><h3>شەربەت</h3><button onclick="choose('شەربەت')">داواکردن</button></div>
+    <div class="product"><div class="pic">🍪</div><h3>کێکی پاکەتکراو</h3><button onclick="choose('کێکی پاکەتکراو')">داواکردن</button></div>
+    <div class="product"><div class="pic">🍚</div><h3>ئەرزاق</h3><button onclick="choose('ئەرزاق')">داواکردن</button></div>
+    <div class="product"><div class="pic">🍼</div><h3>پەمپەرس و پێداویستی منداڵ</h3><button onclick="choose('پەمپەرس و پێداویستی منداڵ')">داواکردن</button></div>
+    <div class="product"><div class="pic">📦</div><h3>جگارە</h3><button onclick="choose('جگارە')">داواکردن</button></div>
+    <div class="product"><div class="pic">🛍️</div><h3>بەرهەمی تر</h3><button onclick="choose('بەرهەمی تر')">داواکردن</button></div>
+  </div>
+
+  <section class="orderbox" id="order">
+    <h2>داواکاری بەرهەم</h2>
+    <form id="orderForm">
+      <label for="shop">ناوی مارکێت</label>
+      <input id="shop" required placeholder="ناوی مارکێتەکەت بنووسە">
+      <label for="mobile">ژمارەی مۆبایل</label>
+      <input id="mobile" required type="tel" placeholder="ژمارەی مۆبایل">
+      <label for="area">ناونیشان / ناوچە</label>
+      <input id="area" required placeholder="ناوچەکەت بنووسە">
+      <label for="items">بەرهەم و ژمارەی کارتۆن</label>
+      <textarea id="items" required placeholder="ناوی بەرهەم و ژمارەی کارتۆن بنووسە"></textarea>
+      <button class="orderbtn" type="submit">ناردنی داواکاری بۆ واتساپ</button>
+    </form>
+  </section>
+</main>
+
+<footer>کۆگای ئەلماس © 2026<br>ناو هەولێر و دەورووبەری</footer>
+
+<script>
+function choose(name){
+  document.getElementById('items').value += (document.getElementById('items').value ? '\n' : '') + name + ' — ژمارە: ';
+  document.getElementById('order').scrollIntoView({behavior:'smooth'});
+}
+document.getElementById('orderForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const msg =
+    'داواکاری نوێ - کۆگای ئەلماس\n' +
+    'ناوی مارکێت: ' + document.getElementById('shop').value + '\n' +
+    'مۆبایل: ' + document.getElementById('mobile').value + '\n' +
+    'ناونیشان: ' + document.getElementById('area').value + '\n' +
+    'بەرهەمەکان:\n' + document.getElementById('items').value;
+  window.open('https://wa.me/9647512267252?text=' + encodeURIComponent(msg),'_blank');
+});
+</script>
+
+</body>
+</html>
