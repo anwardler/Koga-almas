@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>کاڵاکانی کۆگای ئەلماس</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f2f5f3;margin:0;padding:20px;color:#173b2b}
+header{background:#146b43;color:white;padding:24px;border-radius:15px;text-align:center}
+input,textarea{width:100%;padding:13px;margin:8px 0;box-sizing:border-box;border:1px solid #ccc;border-radius:8px;font-size:16px}
+button{width:100%;padding:14px;background:#16834f;color:white;border:0;border-radius:8px;font-size:17px;margin-top:10px}
+.card{background:white;padding:18px;margin-top:18px;border-radius:12px}
+</style>
+</head>
+<body>
+<header>
+<h1>کۆگای ئەلماس</h1>
+<p>بەخێربێن بۆ سیستەمی داواکاری کاڵا</p>
+</header>
+
+<div class="card">
+<h2>زانیاری دوکان</h2>
+<input id="shop" placeholder="ناوی دوکان">
+<input id="phone" placeholder="ژمارەی مۆبایل">
+<input id="area" placeholder="ناونیشان و ناوچە">
+</div>
+
+<div class="card">
+<h2>داواکاری کاڵا</h2>
+<textarea id="items" rows="6" placeholder="ناوی کاڵا و ژمارەی کارتۆن بنووسە"></textarea>
+<textarea id="notes" placeholder="تێبینی، ئەگەر هەتە"></textarea>
+<button onclick="sendOrder()">ناردنی داواکاری لە واتسئەپ</button>
+</div>
+
+<script>
+function sendOrder(){
+let shop=document.getElementById('shop').value.trim();
+let phone=document.getElementById('phone').value.trim();
+let area=document.getElementById('area').value.trim();
+let items=document.getElementById('items').value.trim();
+let notes=document.getElementById('notes').value.trim();
+if(!shop||!phone||!items){
+alert('تکایە ناوی دوکان، ژمارەی مۆبایل و کاڵاکان پڕ بکەرەوە');
+return;
+}
+let msg='داواکاری نوێ - کۆگای ئەلماس\nناوی دوکان: '+shop+
+'\nمۆبایل: '+phone+'\nناونیشان: '+area+
+'\nکاڵاکان:\n'+items+'\nتێبینی: '+notes;
+window.open('https://wa.me/9647512267252?text='+encodeURIComponent(msg),'_blank');
+}
+</script>
+</body>
+</html>
