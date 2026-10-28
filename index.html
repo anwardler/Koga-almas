@@ -1,118 +1,479 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ckb" dir="rtl">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>کۆگای ئەلماس | ALMAS</title>
+<meta name="theme-color" content="#063f31">
+<title>کۆگای ئەلماس | پێداویستی مارکێت</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#f4f6f1;color:#20352a;font-family:Arial,Tahoma,sans-serif}
-header{background:#103c2b;color:white;text-align:center;padding:24px 12px;border-bottom:4px solid #d4b45e}
-.logo{font-size:36px;font-weight:bold;color:#e6c66d;letter-spacing:3px}
-.brand{font-size:15px;margin-top:8px}
-.phone{font-size:20px;font-weight:bold;margin-top:15px;direction:ltr}
-.contact{color:#f0d88d;font-size:13px;margin-top:5px}
-.location{font-size:13px;margin-top:10px}
-.hero{margin:16px;padding:30px 12px;background:linear-gradient(135deg,#20583e,#09291d);border-radius:16px;text-align:center;color:white}
-.hero h1{color:#f0d17b;font-size:25px;margin:0 0 12px}
-.hero p{font-size:14px;margin:0;line-height:1.8}
-main{padding:0 14px 28px}
-h2{font-size:20px;color:#16442f;margin:24px 0 14px}
-.categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.category{background:white;padding:16px 6px;text-align:center;border-radius:12px;border:1px solid #e0e6dc;font-weight:bold;box-shadow:0 3px 10px #173c2610}
-.icon{display:block;font-size:27px;margin-bottom:8px}
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.product{background:white;border:1px solid #e0e6dc;border-radius:13px;padding:12px;text-align:center}
-.pic{height:90px;display:flex;align-items:center;justify-content:center;background:#f3f6ef;border-radius:9px;font-size:44px}
-.product h3{font-size:15px;min-height:35px;line-height:1.6}
-button{border:0;border-radius:8px;padding:11px 8px;background:#174a32;color:white;font-size:14px;font-weight:bold;width:100%}
-.orderbox{margin-top:26px;background:white;padding:16px;border-radius:14px;border:1px solid #e0e6dc}
-label{display:block;margin:13px 0 6px;font-size:14px}
-input,textarea{width:100%;padding:12px;border:1px solid #ccd6ca;border-radius:8px;font-size:16px;font-family:inherit}
-textarea{min-height:90px}
-.send{background:#16834b;margin-top:16px}
-footer{background:#103c2b;color:white;text-align:center;padding:20px;font-size:13px;line-height:2}
+:root {
+  --green:#063f31;
+  --green2:#0b5943;
+  --gold:#d8b45b;
+  --cream:#f7f5ed;
+  --ink:#18352d;
+  --muted:#6b7b73;
+  --line:#e5e9e2;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:var(--cream);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;
+  color:var(--ink);
+}
+a { color:inherit; text-decoration:none; }
+.wrap { width:min(1120px,94%); margin:auto; }
+.topbar {
+  background:var(--green);
+  color:white;
+  padding:10px 0;
+  font-size:13px;
+}
+.topinner {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.topinner strong { color:#f2d78b; }
+.brandhead {
+  background:linear-gradient(135deg,#073b2e,#0b5943);
+  color:white;
+  padding:24px 0 22px;
+  border-bottom:4px solid var(--gold);
+}
+.brandrow {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+.brand { display:flex; align-items:center; gap:13px; }
+.logo {
+  width:65px;
+  height:65px;
+  border:2px solid var(--gold);
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  color:var(--gold);
+  font-size:30px;
+  font-weight:900;
+}
+.brand h1 {
+  margin:0;
+  font-size:clamp(25px,4vw,38px);
+}
+.brand p {
+  margin:5px 0 0;
+  color:#f0d995;
+  font-size:14px;
+}
+.contact {
+  text-align:left;
+  line-height:1.9;
+  font-size:14px;
+}
+.contact a {
+  font-size:18px;
+  font-weight:800;
+  color:#f5d982;
+  direction:ltr;
+  display:inline-block;
+}
+.hero { padding:26px 0 20px; }
+.heroBox {
+  background:linear-gradient(120deg,#fff,#f4edda);
+  border:1px solid #e9dfc2;
+  border-radius:22px;
+  padding:24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.hero h2 {
+  margin:0 0 8px;
+  color:var(--green);
+  font-size:clamp(25px,4vw,36px);
+}
+.hero p {
+  margin:0;
+  color:#53685e;
+  font-size:15px;
+  line-height:1.9;
+}
+.heroBadge {
+  background:var(--green);
+  color:#f7dfa0;
+  border-radius:18px;
+  padding:15px 20px;
+  text-align:center;
+  min-width:140px;
+  font-weight:800;
+  line-height:1.8;
+}
+.heroBadge span { display:block; font-size:28px; }
+.sectiontitle {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:22px 0 13px;
+  font-size:20px;
+  color:var(--green);
+}
+.sectiontitle:after {
+  content:"";
+  height:1px;
+  background:#d8c78f;
+  flex:1;
+}
+.categories {
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  gap:10px;
+}
+.cat {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px 5px;
+  text-align:center;
+  box-shadow:0 4px 12px #173d2b08;
+  font-size:13px;
+  font-weight:750;
+}
+.caticon {
+  display:block;
+  font-size:25px;
+  margin-bottom:7px;
+}
+.tools {
+  display:flex;
+  gap:10px;
+  margin:18px 0;
+  flex-wrap:wrap;
+}
+.search {
+  flex:1;
+  min-width:200px;
+  border:1px solid #dfe5dc;
+  background:white;
+  border-radius:12px;
+  padding:13px 15px;
+  font-size:15px;
+}
+.hint {
+  align-self:center;
+  color:var(--muted);
+  font-size:13px;
+}
+.products {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.product {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:12px;
+  box-shadow:0 5px 18px #163c2b08;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+.photo {
+  height:130px;
+  border-radius:12px;
+  background:linear-gradient(145deg,#f4f3eb,#e6eddf);
+  display:grid;
+  place-items:center;
+  font-size:55px;
+  margin-bottom:11px;
+}
+.product h3 {
+  font-size:15px;
+  line-height:1.6;
+  margin:0 0 4px;
+}
+.product p {
+  font-size:12px;
+  color:var(--muted);
+  margin:0 0 12px;
+  line-height:1.6;
+}
+.product button {
+  margin-top:auto;
+  background:var(--green);
+  color:white;
+  border:0;
+  border-radius:10px;
+  padding:11px;
+  font-weight:750;
+  font-size:14px;
+  cursor:pointer;
+}
+.order {
+  margin:28px 0;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:22px;
+}
+.order h2 { margin:0 0 6px; color:var(--green); }
+.order .sub {
+  color:var(--muted);
+  font-size:13px;
+  margin:0 0 17px;
+}
+.formgrid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.formgrid input,.formgrid textarea {
+  width:100%;
+  border:1px solid #dfe5dc;
+  border-radius:10px;
+  padding:13px;
+  font:inherit;
+  font-size:14px;
+}
+.formgrid textarea {
+  grid-column:1/-1;
+  min-height:85px;
+}
+.submit {
+  margin-top:13px;
+  background:#16854e;
+  color:white;
+  border:0;
+  border-radius:11px;
+  padding:14px 18px;
+  font:inherit;
+  font-weight:800;
+  width:100%;
+  cursor:pointer;
+}
+.note {
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.8;
+  margin-top:9px;
+}
+footer {
+  background:var(--green);
+  color:#e8efe9;
+  text-align:center;
+  padding:23px 12px;
+  margin-top:30px;
+  font-size:13px;
+  line-height:2;
+}
+footer strong { color:#f0d58a; }
+@media(max-width:760px) {
+  .categories { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .products { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .brandrow { align-items:flex-start; }
+  .contact { font-size:12px; }
+  .contact a { font-size:15px; }
+  .heroBadge { min-width:95px; padding:10px; font-size:12px; }
+  .photo { height:115px; }
+}
+@media(max-width:420px) {
+  .brand { gap:8px; }
+  .logo { width:52px; height:52px; font-size:24px; }
+  .brand h1 { font-size:24px; }
+  .brand p { font-size:12px; }
+  .contact a { font-size:13px; }
+  .categories { gap:7px; }
+  .cat { font-size:11px; padding:11px 3px; }
+  .caticon { font-size:22px; }
+  .heroBox { padding:17px; }
+  .hero p { font-size:13px; }
+  .formgrid { grid-template-columns:1fr; }
+  .formgrid textarea { grid-column:auto; }
+}
 </style>
 </head>
 <body>
 
-<header>
-<div class="logo">◆ ALMAS ◆</div>
-<div class="brand">کۆگای ئەلماس — کۆگای جوملەی مارکێت</div>
-<div class="phone">0751 226 7252</div>
-<div class="contact">بۆ پەیوەندیکردن</div>
-<div class="location">ناو هەولێر و دەوروبەری</div>
+<div class="topbar">
+  <div class="wrap topinner">
+    <span>کۆگای جوملەی پێداویستی مارکێت</span>
+    <strong>کوالێتی باش • نرخێکی گونجاو</strong>
+  </div>
+</div>
+
+<header class="brandhead">
+  <div class="wrap brandrow">
+    <div class="brand">
+      <div class="logo">A</div>
+      <div>
+        <h1>کۆگای ئەلماس</h1>
+        <p>پێداویستی مارکێت لێرەیە</p>
+      </div>
+    </div>
+    <div class="contact">
+      <div>بۆ پەیوەندیکردن</div>
+      <a href="tel:+9647512267252">0751 226 7252</a>
+      <div>ناو هەولێر و دەوروبەری</div>
+    </div>
+  </div>
 </header>
 
+<main class="wrap">
+
 <section class="hero">
-<h1>پێداویستی مارکێت لێرەیە</h1>
-<p>کۆگای ئەلماس<br>پێداویستی مارکێتەکانت لە یەک شوێن</p>
+  <div class="heroBox">
+    <div>
+      <h2>هەموو پێداویستییەکانت لە یەک شوێن</h2>
+      <p>بۆ داواکاری و زانیاری زیاتر، مەوادەکان هەڵبژێرە و داواکارییەکەت لە واتساپ بنێرە.</p>
+    </div>
+    <div class="heroBadge">
+      <span>◆</span>
+      ALMAS<br>
+      جۆری باش، خزمەتی باش
+    </div>
+  </div>
 </section>
 
-<main>
-<h2>بەشەکان</h2>
-<div class="categories">
-<div class="category"><span class="icon">🧹</span>پاکەرەوەکان</div>
-<div class="category"><span class="icon">🍟</span>چیپس</div>
-<div class="category"><span class="icon">🥤</span>ساردەمەنی و شەربەت</div>
-<div class="category"><span class="icon">🍪</span>کێک</div>
-<div class="category"><span class="icon">🛒</span>ئەرزاق</div>
-<div class="category"><span class="icon">🍼</span>عەفازە</div>
-<div class="category"><span class="icon">🚬</span>جگارە</div>
+<h2 class="sectiontitle">بەشەکان</h2>
+<nav class="categories" aria-label="بەشەکان">
+  <a class="cat" href="#products"><span class="caticon">🧴</span>پاکەرەوەکان</a>
+  <a class="cat" href="#products"><span class="caticon">🍟</span>چیپس</a>
+  <a class="cat" href="#products"><span class="caticon">🥤</span>ساردەمەنی و شەربەت</a>
+  <a class="cat" href="#products"><span class="caticon">🍪</span>کێک</a>
+  <a class="cat" href="#products"><span class="caticon">🌾</span>ئەرزاق</a>
+  <a class="cat" href="#products"><span class="caticon">🍼</span>عەفازە</a>
+  <a class="cat" href="#products"><span class="caticon">🚬</span>جگارە</a>
+</nav>
+
+<h2 class="sectiontitle" id="products">مەوادەکان</h2>
+
+<div class="tools">
+  <input id="search" class="search" type="search" placeholder="گەڕان بە ناوی مەواد..." aria-label="گەڕان بە ناوی مەواد">
+  <span class="hint">نرخەکان بۆ کڕیار نیشان نادرێن</span>
 </div>
 
-<h2>هەموو بەرهەمەکان</h2>
-<div class="products">
-<div class="product"><div class="pic">🧴</div><h3>پاکەرەوەکان</h3><button onclick="choose('پاکەرەوەکان')">داواکردن</button></div>
-<div class="product"><div class="pic">🍟</div><h3>چیپس</h3><button onclick="choose('چیپس')">داواکردن</button></div>
-<div class="product"><div class="pic">🥤</div><h3>ساردەمەنی و شەربەت</h3><button onclick="choose('ساردەمەنی و شەربەت')">داواکردن</button></div>
-<div class="product"><div class="pic">🍪</div><h3>کێکی پاکەتکراو</h3><button onclick="choose('کێکی پاکەتکراو')">داواکردن</button></div>
-<div class="product"><div class="pic">🍚</div><h3>ئەرزاق</h3><button onclick="choose('ئەرزاق')">داواکردن</button></div>
-<div class="product"><div class="pic">🍼</div><h3>پەمپەرس و پێداویستی منداڵ</h3><button onclick="choose('پەمپەرس و پێداویستی منداڵ')">داواکردن</button></div>
-<div class="product"><div class="pic">📦</div><h3>جگارە</h3><button onclick="choose('جگارە')">داواکردن</button></div>
-<div class="product"><div class="pic">🛍️</div><h3>بەرهەمی تر</h3><button onclick="choose('بەرهەمی تر')">داواکردن</button></div>
+<div class="products" id="productGrid">
+
+<article class="product" data-name="پاکەرەوە و سابون">
+  <div class="photo">🧴</div>
+  <h3>پاکەرەوە و سابون</h3>
+  <p>پاکەت و کارتۆن</p>
+  <button onclick="addItem('پاکەرەوە و سابون')">زیادکردن بۆ داواکاری</button>
+</article>
+
+<article class="product" data-name="چیپس و سناک">
+  <div class="photo">🍟</div>
+  <h3>چیپس و سناک</h3>
+  <p>جۆرە جیاوازەکان</p>
+  <button onclick="addItem('چیپس و سناک')">زیادکردن بۆ داواکاری</button>
+</article>
+
+<article class="product" data-name="شەربەت و خواردنەوە">
+  <div class="photo">🥤</div>
+  <h3>شەربەت و خواردنەوە</h3>
+  <p>ساردەمەنی و شەربەت</p>
+  <button onclick="addItem('شەربەت و خواردنەوە')">زیادکردن بۆ داواکاری</button>
+</article>
+
+<article class="product" data-name="کێکی پاکەتکراو">
+  <div class="photo">🍰</div>
+  <h3>کێکی پاکەتکراو</h3>
+  <p>جۆرە باوەکان وەک Ülker و İSTİ</p>
+  <button onclick="addItem('کێکی پاکەتکراو')">زیادکردن بۆ داواکاری</button>
+</article>
+
+<article class="product" data-name="ئەرزاق و پێداویستی خواردن">
+  <div class="photo">🌾</div>
+  <h3>ئەرزاق و پێداویستی خواردن</h3>
+  <p>مەوادە بنەڕەتییەکان</p>
+  <button onclick="addItem('ئەرزاق و پێداویستی خواردن')">زیادکردن بۆ داواکاری</button>
+</article>
+
+<article class="product" data-name="عەفازە و پێداویستی منداڵ">
+  <div class="photo">🍼</div>
+  <h3>عەفازە و پێداویستی منداڵ</h3>
+  <p>وەک Molfix و پێداویستی منداڵ</p>
+  <button onclick="addItem('عەفازە و پێداویستی منداڵ')">زیادکردن بۆ داواکاری</button>
+</article>
+
+<article class="product" data-name="جگارە">
+  <div class="photo">📦</div>
+  <h3>جگارە</h3>
+  <p>داواکاری بە پەیوەندی</p>
+  <button onclick="addItem('جگارە')">زیادکردن بۆ داواکاری</button>
+</article>
+
+<article class="product" data-name="مەوادەکانی تری مارکێت">
+  <div class="photo">🛍️</div>
+  <h3>مەوادەکانی تری مارکێت</h3>
+  <p>ئەگەر مەوادێک نەبوو، لە تێبینی بنووسە</p>
+  <button onclick="addItem('مەوادەکانی تری مارکێت')">زیادکردن بۆ داواکاری</button>
+</article>
+
 </div>
 
-<section class="orderbox" id="order">
-<h2>داواکاری بەرهەم</h2>
-<form id="orderForm">
-<label for="shop">ناوی مارکێت</label>
-<input id="shop" required placeholder="ناوی مارکێتەکەت">
+<section class="order" id="order">
+  <h2>ناردنی داواکاری</h2>
+  <p class="sub">زانیاری مارکێتەکەت بنووسە و داواکارییەکەت ڕاستەوخۆ لە واتساپ بنێرە.</p>
 
-<label for="mobile">ژمارەی مۆبایل</label>
-<input id="mobile" type="tel" required placeholder="ژمارەی مۆبایل">
-
-<label for="area">ناونیشان / ناوچە</label>
-<input id="area" required placeholder="ناوچەکەت">
-
-<label for="items">بەرهەم و ژمارەی کارتۆن</label>
-<textarea id="items" required placeholder="ناوی بەرهەم و ژمارەی کارتۆن"></textarea>
-
-<button class="send" type="submit">ناردنی داواکاری بۆ واتساپ</button>
-</form>
+  <form id="orderForm">
+    <div class="formgrid">
+      <input id="shop" required placeholder="ناوی مارکێت / دووکان">
+      <input id="phone" required type="tel" placeholder="ژمارەی مۆبایل">
+      <input id="area" required placeholder="ناوی ناوچە">
+      <textarea id="items" required placeholder="مەواد و ژمارەی کارتۆنەکان بنووسە..."></textarea>
+    </div>
+    <button class="submit" type="submit">ناردن لە واتساپ</button>
+    <div class="note">نرخی مەوادەکان بۆ کڕیار نیشان نادرێت.</div>
+  </form>
 </section>
+
 </main>
 
 <footer>
-کۆگای ئەلماس © 2026<br>
-ناو هەولێر و دەوروبەری
+  <strong>کۆگای ئەلماس</strong><br>
+  پێداویستی مارکێت لێرەیە<br>
+  بۆ پەیوەندیکردن: 0751 226 7252<br>
+  ناو هەولێر و دەوروبەری
 </footer>
 
 <script>
-function choose(name){
-const field=document.getElementById('items');
-field.value+=(field.value?'\n':'')+name+' — ژمارەی کارتۆن: ';
-document.getElementById('order').scrollIntoView({behavior:'smooth'});
+function addItem(name) {
+  const field = document.getElementById('items');
+  field.value = (field.value.trim() ? field.value.trim() + '\n' : '') + name + ' — ژمارە: ';
+  document.getElementById('order').scrollIntoView({behavior:'smooth'});
+  field.focus();
 }
 
-document.getElementById('orderForm').addEventListener('submit',function(e){
-e.preventDefault();
-const msg='داواکاری نوێ - کۆگای ئەلماس\n'+
-'ناوی مارکێت: '+document.getElementById('shop').value+'\n'+
-'مۆبایل: '+document.getElementById('mobile').value+'\n'+
-'ناونیشان: '+document.getElementById('area').value+'\n'+
-'بەرهەمەکان:\n'+document.getElementById('items').value;
-window.open('https://wa.me/9647512267252?text='+encodeURIComponent(msg),'_blank');
+document.getElementById('search').addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  document.querySelectorAll('.product').forEach(function(p) {
+    p.style.display = p.dataset.name.toLowerCase().includes(q) ? 'flex' : 'none';
+  });
+});
+
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const shop = document.getElementById('shop').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const area = document.getElementById('area').value.trim();
+  const items = document.getElementById('items').value.trim();
+
+  const msg = `داواکاری نوێ - کۆگای ئەلماس
+ناوی مارکێت: ${shop}
+ژمارەی مۆبایل: ${phone}
+ناوچە: ${area}
+مەواد:
+${items}`;
+
+  window.open('https://wa.me/9647512267252?text=' + encodeURIComponent(msg), '_blank');
 });
 </script>
 </body>
