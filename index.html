@@ -2,530 +2,191 @@
 <html lang="ckb" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#064b32">
 <title>کۆگای ئەلماس | ALMAS</title>
-
 <style>
-:root {
-  --green: #064b32;
-  --deep: #022d1e;
-  --gold: #edc34a;
-  --cream: #f5f7f3;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: Tahoma, Arial, sans-serif;
-  background: var(--cream);
-  color: var(--green);
-}
-a { color: inherit; text-decoration: none; }
-button, input, textarea { font: inherit; }
-button { cursor: pointer; }
-
-header {
-  background: linear-gradient(120deg,#022d1e,#08764d);
-  color: white;
-  padding: 16px 4%;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 15px;
-  border-bottom: 4px solid var(--gold);
-}
-.contact { direction: ltr; text-align: left; line-height: 1.9; }
-.contact a { font-size: 18px; font-weight: bold; }
-.contact small { display: block; direction: rtl; }
-.logo { text-align: center; }
-.logo .diamond { color: var(--gold); font-size: 35px; }
-.logo h1 {
-  color: var(--gold);
-  font: bold 39px Georgia, serif;
-  letter-spacing: 3px;
-  margin: 0;
-}
-.logo p { margin: 4px 0; font-weight: bold; }
-.location { text-align: right; line-height: 1.9; font-size: 14px; }
-
-.hero {
-  min-height: 320px;
-  padding: 40px 6%;
-  display: flex;
-  align-items: center;
-  color: white;
-  background:
-    linear-gradient(90deg,rgba(0,35,23,.94),rgba(0,55,36,.55)),
-    url("https://images.unsplash.com/photo-1604719312566-8912e9c8a213?auto=format&fit=crop&w=1600&q=85")
-    center/cover;
-}
-.hero-content { max-width: 650px; }
-.hero h2 { font-size: clamp(36px,5vw,58px); margin: 0 0 12px; }
-.hero p { font-size: 18px; line-height: 2; }
-.hero .gold-text { color: var(--gold); font-weight: bold; }
-.gold-btn {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 13px 24px;
-  background: var(--gold);
-  color: var(--deep);
-  border-radius: 30px;
-  font-weight: bold;
-}
-
-.section { padding: 30px 3.5%; }
-.title {
-  font-size: 25px;
-  margin: 0 0 23px;
-  text-align: center;
-}
-.title:after {
-  content: "";
-  display: block;
-  width: 65px;
-  height: 4px;
-  margin: 10px auto 0;
-  border-radius: 5px;
-  background: var(--gold);
-}
-
-.categories {
-  display: grid;
-  grid-template-columns: repeat(7,minmax(0,1fr));
-  gap: 10px;
-}
-.category {
-  background: white;
-  border: 1px solid #e1e8df;
-  border-radius: 13px;
-  padding: 14px 5px;
-  text-align: center;
-  color: var(--green);
-  box-shadow: 0 3px 10px #0038210d;
-}
-.category.active, .category:hover {
-  border-color: var(--gold);
-  transform: translateY(-2px);
-}
-.category .icon { font-size: 29px; margin-bottom: 8px; }
-.category strong { display: block; font-size: 12px; line-height: 1.8; }
-
-.toolbar { display: flex; gap: 10px; margin-bottom: 22px; }
-.search {
-  flex: 1;
-  min-width: 0;
-  padding: 14px;
-  border: 1px solid #dce5dc;
-  border-radius: 11px;
-  background: white;
-  outline-color: var(--green);
-}
-.reset {
-  border: 0;
-  border-radius: 11px;
-  background: var(--green);
-  color: white;
-  padding: 0 15px;
-}
-
-.products {
-  display: grid;
-  grid-template-columns: repeat(4,minmax(0,1fr));
-  gap: 17px;
-}
-.card {
-  background: white;
-  border: 1px solid #e3e9e2;
-  border-radius: 13px;
-  overflow: hidden;
-  box-shadow: 0 3px 12px #0038210d;
-  transition: .2s;
-}
-.card:hover { transform: translateY(-3px); }
-.visual {
-  height: 175px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: linear-gradient(145deg,#fff,#eaf2e9);
-}
-.visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 8px;
-}
-.package {
-  text-align: center;
-  padding: 12px;
-  width: 86%;
-  border-radius: 12px;
-  color: white;
-  background: linear-gradient(145deg,#08764d,#023723);
-  border-bottom: 5px solid var(--gold);
-}
-.package .symbol { font-size: 39px; }
-.package strong { display: block; font-size: 20px; margin-top: 7px; }
-.package small { display: block; margin-top: 5px; line-height: 1.7; }
-.card-info { padding: 12px; }
-.card h3 { margin: 0 0 9px; font-size: 14px; line-height: 1.8; }
-.brand {
-  display: inline-block;
-  font-size: 11px;
-  padding: 5px 8px;
-  border-radius: 6px;
-  color: #356b4b;
-  background: #edf5ee;
-}
-.order-btn {
-  width: 100%;
-  margin-top: 12px;
-  padding: 11px 5px;
-  border: 0;
-  border-radius: 8px;
-  background: var(--green);
-  color: white;
-  font-size: 13px;
-}
-.order-btn:hover { background: #08764d; }
-.empty {
-  grid-column: 1/-1;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.features {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 10px;
-  margin-top: 25px;
-}
-.feature {
-  text-align: center;
-  background: #e9f1eb;
-  padding: 17px 8px;
-  border-radius: 12px;
-}
-.feature span { font-size: 27px; }
-.feature strong { display: block; margin: 8px 0; }
-.feature small { line-height: 1.8; }
-
-.order-box {
-  max-width: 750px;
-  margin: auto;
-  padding: 22px;
-  border-radius: 15px;
-  background: white;
-  border: 1px solid #e1e8df;
-}
-.order-box p { line-height: 2; }
-form { display: grid; gap: 12px; }
-form input, form textarea {
-  width: 100%;
-  padding: 13px;
-  border: 1px solid #dbe4dc;
-  border-radius: 9px;
-  outline-color: var(--green);
-}
-form textarea { min-height: 115px; resize: vertical; }
-.submit {
-  background: #16864f;
-  color: white;
-  border: 0;
-  border-radius: 9px;
-  padding: 14px;
-  font-weight: bold;
-}
-.note { color: #718077; font-size: 12px; line-height: 1.9; }
-
-footer {
-  padding: 28px 5%;
-  background: var(--deep);
-  color: white;
-  text-align: center;
-  line-height: 2.2;
-  border-top: 4px solid var(--gold);
-}
-footer strong { color: var(--gold); }
-.whatsapp {
-  position: fixed;
-  left: 18px;
-  bottom: 18px;
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: #20bd62;
-  color: white;
-  display: grid;
-  place-items: center;
-  font-size: 27px;
-  z-index: 10;
-  box-shadow: 0 3px 12px #0003;
-}
-
-@media(max-width:900px) {
-  .categories { grid-template-columns: repeat(4,minmax(0,1fr)); }
-  .products { grid-template-columns: repeat(3,minmax(0,1fr)); }
-}
-@media(max-width:600px) {
-  header { grid-template-columns: 1fr; text-align: center; }
-  .logo { grid-row: 1; }
-  .contact, .contact small, .location { text-align: center; }
-  .hero { min-height: 275px; padding: 28px 6%; }
-  .hero p { font-size: 15px; }
-  .section { padding: 24px 3%; }
-  .categories { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
-  .category { padding: 11px 4px; }
-  .category .icon { font-size: 25px; }
-  .category strong { font-size: 11px; }
-  .products { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
-  .visual { height: 140px; }
-  .card-info { padding: 9px; }
-  .card h3 { font-size: 13px; }
-  .order-btn { font-size: 12px; }
-  .features { grid-template-columns: repeat(2,1fr); }
-  .order-box { padding: 15px; }
-}
+:root{--green:#064b32;--gold:#d9b45b;--cream:#f7f5ed;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--cream);color:#17382b}
+header{background:var(--green);color:white;padding:18px 16px 26px;border-radius:0 0 25px 25px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{font-size:27px;font-weight:900;color:var(--gold);letter-spacing:2px}
+.badge{font-size:12px;border:1px solid var(--gold);padding:7px 10px;border-radius:20px}
+.hero{text-align:center;padding:28px 5px 12px}
+.hero h1{font-size:28px;margin:8px 0;color:white}
+.hero h1 span{color:var(--gold)}
+.hero p{line-height:1.9;color:#e5eee8;font-size:14px}
+.location{color:var(--gold);font-size:13px}
+main{max-width:950px;margin:auto;padding:18px 14px 100px}
+.search{width:100%;padding:14px;border:1px solid #ddd;border-radius:13px;font-size:16px;background:white;outline-color:var(--gold)}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin:25px 0 14px}
+.section-title h2{font-size:20px;margin:0;color:var(--green)}
+.categories{display:flex;gap:9px;overflow-x:auto;padding:3px 0 12px}
+.category{white-space:nowrap;border:1px solid #d9e1da;background:white;color:var(--green);border-radius:20px;padding:10px 15px;font-size:14px;cursor:pointer}
+.category.active,.category:focus{background:var(--green);color:white}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{background:white;border:1px solid #e8e5da;border-radius:16px;overflow:hidden;box-shadow:0 3px 12px #12331a0a}
+.product-img{height:115px;display:flex;align-items:center;justify-content:center;background:#eef3eb;font-size:53px}
+.card-body{padding:12px}
+.card h3{font-size:15px;margin:0 0 7px;line-height:1.6}
+.card p{font-size:12px;color:#6b7a70;margin:0 0 12px}
+.add{width:100%;padding:10px;border:0;border-radius:10px;background:var(--green);color:white;font-size:14px;cursor:pointer}
+.add:active{transform:scale(.98)}
+.orderbox{margin-top:28px;background:white;border-radius:18px;padding:18px;border:1px solid #e6e2d5}
+.orderbox h2{margin-top:0;color:var(--green)}
+.note{font-size:13px;color:#66776c;line-height:1.8}
+#orderList{width:100%;min-height:120px;padding:12px;border:1px solid #d9dfd7;border-radius:12px;font-size:15px;line-height:1.8;resize:vertical}
+.field{width:100%;padding:13px;margin-top:10px;border:1px solid #d9dfd7;border-radius:10px;font-size:15px}
+.send{width:100%;margin-top:12px;background:#168b4b;color:white;border:0;border-radius:12px;padding:15px;font-size:16px;font-weight:bold;cursor:pointer}
+footer{text-align:center;background:var(--green);color:#eaf0e9;padding:25px 15px;line-height:2}
+footer strong{color:var(--gold)}
+.whatsapp{position:fixed;bottom:15px;left:15px;background:#168b4b;color:white;text-decoration:none;padding:13px 17px;border-radius:30px;box-shadow:0 4px 15px #0002;font-weight:bold}
+.empty{grid-column:1/-1;text-align:center;padding:25px;color:#66776c}
+@media(min-width:650px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}.product-img{height:145px}.hero h1{font-size:36px}}
 </style>
 </head>
-
 <body>
 
 <header>
-  <div class="contact">
-    <a href="https://wa.me/9647512267252">🟢 0751 226 7252</a>
-    <small>بۆ پەیوەندیکردن</small>
+  <div class="top">
+    <div class="logo">💎 ALMAS</div>
+    <div class="badge">کۆگای جوملە</div>
   </div>
-
-  <div class="logo">
-    <div class="diamond">♢</div>
-    <h1>ALMAS</h1>
-    <p>کۆگای ئەلماس</p>
-    <small>جۆملەی مارکێت</small>
-  </div>
-
-  <div class="location">
-    📍 کەسنەزان و شاویس<br>
-    هەولێر و دەوروبەری
+  <div class="hero">
+    <div class="location">کەسنەزان • شاویس • پرزین</div>
+    <h1>بەخێربێن بۆ <span>کۆگای ئەلماس</span></h1>
+    <p>کاڵای مارکێت بە کوالێتی باش و نرخێکی گونجاو.<br>کاڵاکانت هەڵبژێرە و داواکارییەکەت بنێرە.</p>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-content">
-    <h2>کوالێتی باش</h2>
-    <p>هەموو پێداویستییەکانی مارکێت لە یەک شوێن</p>
-    <p class="gold-text">نرخی گونجاو • کوالێتی باش • خزمەتگوزاری خێرا</p>
-    <a class="gold-btn" href="#products">بینینی هەموو کاڵاکان ←</a>
-  </div>
-</section>
+<main>
+  <input id="search" class="search" placeholder="🔍 گەڕان بەدوای ناوی کاڵا..." oninput="renderProducts()">
 
-<section class="section">
-  <h2 class="title">بەشەکانی کاڵاکان</h2>
-  <div class="categories">
-    <button class="category active" onclick="showAll(this)">
-      <div class="icon">🛒</div><strong>هەموو کاڵاکان</strong>
-    </button>
-    <button class="category" onclick="filterCategory('پاکەرەوەکان',this)">
-      <div class="icon">🧴</div><strong>پاکەرەوەکان</strong>
-    </button>
-    <button class="category" onclick="filterCategory('چیپس',this)">
-      <div class="icon">🍟</div><strong>چیپس</strong>
-    </button>
-    <button class="category" onclick="filterCategory('ساردەمەنی و شەربەت',this)">
-      <div class="icon">🥤</div><strong>ساردەمەنی و شەربەت</strong>
-    </button>
-    <button class="category" onclick="filterCategory('کێک',this)">
-      <div class="icon">🍪</div><strong>کێک و بیسکویت</strong>
-    </button>
-    <button class="category" onclick="filterCategory('ئەرزاق',this)">
-      <div class="icon">🌾</div><strong>ئەرزاق</strong>
-    </button>
-    <button class="category" onclick="filterCategory('عەفازە',this)">
-      <div class="icon">👶</div><strong>عەفازە</strong>
-    </button>
-    <button class="category" onclick="filterCategory('جگارە',this)">
-      <div class="icon">📦</div><strong>جگارە</strong>
-    </button>
+  <div class="section-title">
+    <h2>بەشەکانی کاڵا</h2>
   </div>
-</section>
+  <div class="categories" id="categories"></div>
 
-<section class="section" id="products">
-  <h2 class="title" id="heading">هەموو کاڵاکان</h2>
-  <div class="toolbar">
-    <input class="search" id="search" type="search"
-      placeholder="گەڕان بە ناوی کاڵا یان براند..."
-      oninput="render()">
-    <button class="reset" onclick="resetAll()">هەمووی</button>
+  <div class="section-title">
+    <h2>کاڵاکانمان</h2>
+    <span id="count" style="font-size:12px;color:#64776b"></span>
   </div>
+  <div class="products" id="products"></div>
 
-  <!-- هەموو کاڵاکان لە یەک گریدی گشتیدا پیشان دەدرێن -->
-  <div class="products" id="grid"></div>
-
-  <div class="features">
-    <div class="feature"><span>🚚</span><strong>گەیاندنی خێرا</strong><small>بۆ ناوچەکانی خزمەتگوزاری</small></div>
-    <div class="feature"><span>🛡️</span><strong>کوالێتی باش</strong><small>گرنگی بە کوالێتی دەدەین</small></div>
-    <div class="feature"><span>⭐</span><strong>نرخی گونجاو</strong><small>بۆ کڕینی جوملە</small></div>
-    <div class="feature"><span>🎧</span><strong>پشتیوانی کڕیار</strong><small>پەیوەندی ئاسان و خێرا</small></div>
-  </div>
-</section>
-
-<section class="section" id="order">
-  <h2 class="title">ناردنی داواکاری</h2>
-  <div class="order-box">
-    <p>زانیارییەکانت بنووسە و داواکارییەکەت بۆ کۆگای ئەلماس بنێرە.</p>
-    <form id="orderForm">
-      <input id="shop" placeholder="ناوی مارکێت / دوکان" required>
-      <input id="phone" type="tel" placeholder="ژمارەی مۆبایلت" required>
-      <input id="area" placeholder="ناوی گەڕەک یان ناوچە" required>
-      <textarea id="items" placeholder="ناوی کاڵاکان و ژمارەی داواکراو..." required></textarea>
-      <button class="submit" type="submit">📲 ناردنی داواکاری بۆ واتساپ</button>
-      <div class="note">نرخەکان بۆ کڕیار نیشان نادرێن. واتساپ بۆ تەواوکردنی داواکاری دەکرێتەوە.</div>
-    </form>
-  </div>
-</section>
+  <section class="orderbox">
+    <h2>🛒 داواکارییەکەت</h2>
+    <p class="note">کاڵاکانت زیاد بکە و ژمارەی هەر کاڵایەک بنووسە. نرخەکان لەم ماڵپەڕەدا بۆ کڕیار پیشان نادرێن.</p>
+    <textarea id="orderList" placeholder="کاڵاکانت لێرە دەردەکەون..." ></textarea>
+    <input id="customer" class="field" placeholder="ناوی دوکان یان کڕیار">
+    <input id="phone" class="field" type="tel" placeholder="ژمارەی مۆبایلت">
+    <button class="send" onclick="sendOrder()">📲 ناردنی داواکاری لە واتساپ</button>
+    <button class="category" style="margin-top:10px" onclick="clearOrder()">سڕینەوەی داواکاری</button>
+  </section>
+</main>
 
 <footer>
-  <div style="font-size:27px;color:#edc34a;font-weight:bold">♢ ALMAS ♢</div>
-  <strong>کۆگای ئەلماس</strong>
-  <div>پێداویستی مارکێت لێرەیە</div>
-  <div>کەسنەزان و شاویس — هەولێر و دەوروبەری</div>
-  <div>📞 <a href="https://wa.me/9647512267252">0751 226 7252</a></div>
+  <strong>💎 کۆگای ئەلماس | ALMAS</strong><br>
+  کوالێتی باش • نرخێکی گونجاو • خزمەتگوزاری باش<br>
+  کەسنەزان و شاویس<br>
+  <strong>0751 226 7252</strong>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/9647512267252" aria-label="واتساپ">✆</a>
+<a class="whatsapp" href="https://wa.me/9647512267252" target="_blank">WhatsApp</a>
 
 <script>
-/*
-  زیادکردنی کاڵای نوێ:
-  {name:"ناوی کاڵا",brand:"براند",category:"بەش",emoji:"📦",image:""}
-  بۆ وێنە، لینکی وێنەکە لە image بنووسە.
-*/
+const categoriesList=["هەموو","خواردەمەنی","خواردنەوە","چیپس و سناک","پاکەت و کاڵای تر"];
 
-const products = [
-  {name:"مایعی قاپشۆر",brand:"پاکەرەوەکان",category:"پاکەرەوەکان",emoji:"🧴",image:""},
-  {name:"پۆدری جلشۆر",brand:"پاکەرەوەکان",category:"پاکەرەوەکان",emoji:"🧺",image:""},
-  {name:"پاککەرەوەی ماڵ",brand:"پاکەرەوەکان",category:"پاکەرەوەکان",emoji:"🧽",image:""},
-  {name:"چیپسی Lays",brand:"Lays",category:"چیپس",emoji:"🍟",image:""},
-  {name:"چیپس Doritos",brand:"Doritos",category:"چیپس",emoji:"🥨",image:""},
-  {name:"سناک و چیپس",brand:"سناک",category:"چیپس",emoji:"🍿",image:""},
-  {name:"خواردنەوەی گازی",brand:"خواردنەوە",category:"ساردەمەنی و شەربەت",emoji:"🥤",image:""},
-  {name:"شەربەتی میوە",brand:"شەربەت",category:"ساردەمەنی و شەربەت",emoji:"🧃",image:""},
-  {name:"ئاو و خواردنەوە",brand:"ئاو",category:"ساردەمەنی و شەربەت",emoji:"💧",image:""},
-
-  {name:"بیسکویت و کێکی پاکەتکراو",brand:"Ülker",category:"کێک",emoji:"🍪",image:""},
-  {name:"کێکی پاکەتکراو",brand:"İSTİ",category:"کێک",emoji:"🧁",image:""},
-  {name:"بیسکویت و شیرینی پاکەتکراو",brand:"Ülker / İSTİ",category:"کێک",emoji:"🍫",image:""},
-
-  {name:"برنج",brand:"ئەرزاق",category:"ئەرزاق",emoji:"🌾",image:""},
-  {name:"ڕۆن",brand:"ئەرزاق",category:"ئەرزاق",emoji:"🫒",image:""},
-  {name:"شەکر و چای",brand:"ئەرزاق",category:"ئەرزاق",emoji:"☕",image:""},
-  {name:"ماکارۆنی",brand:"ئەرزاق",category:"ئەرزاق",emoji:"🍝",image:""},
-
-  {name:"پەمپەرس",brand:"Molfix",category:"عەفازە",emoji:"👶",image:""},
-  {name:"پەمپەرس و کاڵای منداڵ",brand:"Afi Baby",category:"عەفازە",emoji:"🍼",image:""},
-  {name:"پێداویستی منداڵ",brand:"Baby",category:"عەفازە",emoji:"🧸",image:""},
-  {name:"کاڵای پاکوخاوێنی منداڵ",brand:"Molfix / Afi Baby",category:"عەفازە",emoji:"🧴",image:""},
-
-  {name:"جۆراوجۆری جگارە",brand:"جگارە",category:"جگارە",emoji:"📦",image:""}
+const productsList=[
+ {name:"برنج",cat:"خواردەمەنی",icon:"🍚"},
+ {name:"شەکر",cat:"خواردەمەنی",icon:"🛍️"},
+ {name:"ڕۆن",cat:"خواردەمەنی",icon:"🫗"},
+ {name:"چا",cat:"خواردەمەنی",icon:"🍵"},
+ {name:"پاسـتا",cat:"خواردەمەنی",icon:"🍝"},
+ {name:"خواردنەوە",cat:"خواردنەوە",icon:"🥤"},
+ {name:"ئاو",cat:"خواردنەوە",icon:"💧"},
+ {name:"شەربەت",cat:"خواردنەوە",icon:"🧃"},
+ {name:"چیپس",cat:"چیپس و سناک",icon:"🥔"},
+ {name:"بیسکویت",cat:"چیپس و سناک",icon:"🍪"},
+ {name:"شیرینی",cat:"چیپس و سناک",icon:"🍬"},
+ {name:"کاکائۆ",cat:"چیپس و سناک",icon:"🍫"},
+ {name:"دەستمال",cat:"پاکەت و کاڵای تر",icon:"🧻"},
+ {name:"سابوون",cat:"پاکەت و کاڵای تر",icon:"🧼"},
+ {name:"پۆدری جلشۆر",cat:"پاکەت و کاڵای تر",icon:"🧺"},
+ {name:"پاکەت",cat:"پاکەت و کاڵای تر",icon:"🛍️"}
 ];
 
-let activeCategory = "هەموو کاڵاکان";
+let selectedCategory="هەموو";
 
-function safe(text) {
-  return String(text).replace(/[&<>"']/g, function(c) {
-    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
-  });
+function renderCategories(){
+ const el=document.getElementById("categories");
+ el.innerHTML="";
+ categoriesList.forEach(cat=>{
+  const b=document.createElement("button");
+  b.className="category"+(selectedCategory===cat?" active":"");
+  b.textContent=cat;
+  b.onclick=()=>{selectedCategory=cat;renderCategories();renderProducts()};
+  el.appendChild(b);
+ });
 }
 
-function render() {
-  const grid = document.getElementById("grid");
-  const query = document.getElementById("search").value.trim().toLowerCase();
-
-  const list = products.filter(p => {
-    const categoryMatch = activeCategory === "هەموو کاڵاکان" || p.category === activeCategory;
-    const searchMatch = (p.name + " " + p.brand + " " + p.category).toLowerCase().includes(query);
-    return categoryMatch && searchMatch;
-  });
-
-  if (!list.length) {
-    grid.innerHTML = '<div class="empty">هیچ کاڵایەک نەدۆزرایەوە.</div>';
-    return;
-  }
-
-  grid.innerHTML = list.map((p, index) => {
-    let visual;
-    if (p.image) {
-      visual = '<img src="' + safe(p.image) + '" alt="' + safe(p.name) +
-        '" loading="lazy" onerror="this.style.display=\'none\'">';
-    } else {
-      visual = '<div class="package"><div class="symbol">' + safe(p.emoji) +
-        '</div><strong>' + safe(p.brand) +
-        '</strong><small>کۆگای ئەلماس</small></div>';
-    }
-
-    return '<article class="card"><div class="visual">' + visual +
-      '</div><div class="card-info"><h3>' + safe(p.name) +
-      '</h3><span class="brand">' + safe(p.brand) +
-      '</span><button class="order-btn" onclick="addItem(' + index +
-      ')">زیادکردن بۆ داواکاری +</button></div></article>';
-  }).join("");
+function renderProducts(){
+ const q=document.getElementById("search").value.trim().toLowerCase();
+ const list=productsList.filter(p=>
+  (selectedCategory==="هەموو"||p.cat===selectedCategory)&&
+  p.name.toLowerCase().includes(q)
+ );
+ document.getElementById("count").textContent=list.length+" کاڵا";
+ const box=document.getElementById("products");
+ box.innerHTML="";
+ if(!list.length){box.innerHTML='<div class="empty">هیچ کاڵایەک نەدۆزرایەوە.</div>';return}
+ list.forEach(p=>{
+  const card=document.createElement("article");
+  card.className="card";
+  const img=document.createElement("div");
+  img.className="product-img";
+  img.textContent=p.icon;
+  const body=document.createElement("div");
+  body.className="card-body";
+  const title=document.createElement("h3");
+  title.textContent=p.name;
+  const desc=document.createElement("p");
+  desc.textContent=p.cat;
+  const button=document.createElement("button");
+  button.className="add";
+  button.textContent="+ زیادکردن بۆ داواکاری";
+  button.onclick=()=>addProduct(p.name);
+  body.append(title,desc,button);
+  card.append(img,body);
+  box.appendChild(card);
+ });
 }
 
-function setActive(button) {
-  document.querySelectorAll(".category").forEach(b => b.classList.remove("active"));
-  if (button) button.classList.add("active");
+function addProduct(name){
+ const box=document.getElementById("orderList");
+ box.value+=(box.value?"\n":"")+"• "+name+" — ژمارە: ";
+ box.focus();
 }
 
-function filterCategory(category, button) {
-  activeCategory = category;
-  setActive(button);
-  document.getElementById("heading").textContent = category;
-  render();
-  document.getElementById("products").scrollIntoView({behavior:"smooth"});
+function clearOrder(){
+ document.getElementById("orderList").value="";
 }
 
-function showAll(button) {
-  activeCategory = "هەموو کاڵاکان";
-  setActive(button);
-  document.getElementById("heading").textContent = activeCategory;
-  render();
-  document.getElementById("products").scrollIntoView({behavior:"smooth"});
+function sendOrder(){
+ const order=document.getElementById("orderList").value.trim();
+ const customer=document.getElementById("customer").value.trim();
+ const phone=document.getElementById("phone").value.trim();
+ if(!order){alert("تکایە سەرەتا کاڵا زیاد بکە.");return}
+ if(!customer){alert("تکایە ناوی دوکان یان کڕیار بنووسە.");return}
+ const message="داواکاری کۆگای ئەلماس\n"+
+ "ناوی کڕیار: "+customer+"\n"+
+ "ژمارەی مۆبایل: "+(phone||"نەنووسراوە")+"\n\n"+
+ "کاڵاکان:\n"+order;
+ window.open("https://wa.me/9647512267252?text="+encodeURIComponent(message),"_blank");
 }
 
-function resetAll() {
-  activeCategory = "هەموو کاڵاکان";
-  document.getElementById("search").value = "";
-  setActive(document.querySelector(".category"));
-  document.getElementById("heading").textContent = activeCategory;
-  render();
-}
-
-function addItem(index) {
-  const product = products[index];
-  const field = document.getElementById("items");
-  field.value += (field.value ? "\n" : "") + product.name + " (" + product.brand + ") — ژمارە: ";
-  document.getElementById("order").scrollIntoView({behavior:"smooth"});
-  field.focus();
-}
-
-document.getElementById("orderForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  const message =
-    "سڵاو کۆگای ئەلماس، داواکارییەکی نوێم هەیە.\n\n" +
-    "ناوی مارکێت: " + document.getElementById("shop").value.trim() + "\n" +
-    "ژمارەی مۆبایل: " + document.getElementById("phone").value.trim() + "\n" +
-    "ناوچە: " + document.getElementById("area").value.trim() + "\n\n" +
-    "کاڵاکان:\n" + document.getElementById("items").value.trim();
-
-  window.location.href = "https://wa.me/9647512267252?text=" + encodeURIComponent(message);
-});
-
-render();
+renderCategories();
+renderProducts();
 </script>
 </body>
 </html>
